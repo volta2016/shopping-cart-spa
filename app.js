@@ -1,11 +1,15 @@
 const openCart = document.querySelector('.cart__icon')
-const openCart = document.querySelector('.close__cart')
+const closeCart = document.querySelector('.close__cart')
 const productDOM = document.querySelector('.product__center')
 const cartDOM = document.querySelector('.cart_center')
 
+let cart = [];
+
+let buttonDOM = []
+
 
 // UI
-class Ui {
+class UI {
 
 }
 // Storage
@@ -16,19 +20,19 @@ class Storage {
 class Products {
   // fetch API link
   async getProduct(){
-    try{
+    try {
       const results = await fetch('products.json')
-      const data = results.json()
+      const data = await results.json()
       console.log(data)
-    } catch {
-      console.log(error)
+    } catch(err) {
+      console.log(err)
     }
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const ui = new UI()
-  const products = new Products()
-  const productsOject
+document.addEventListener('DOMContentLoaded', async() => {
+  const ui = new UI();
+  const products = new Products();
+  const productsOject = await products.getProduct();
   
-}
+});
