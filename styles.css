@@ -5,7 +5,8 @@
   --white: #fff;
   --default: #0751a5;
   --orange: #ff7417;
-  --yellow: #d1b307;
+  --violet: #65186A;
+  --login: #e4adeb;
   --grey: #a0a3ad;
   --grey2: #f9fafd;
   --warn: #e71247;
@@ -32,6 +33,16 @@ body {
   font-weight: 400;
   color: var(--black);
   background-color: var(--white);
+}
+
+footer {
+  background-color: var(--black);
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+footer > small {
+  color: var(--white);
 }
 
 h2,
@@ -94,9 +105,8 @@ li {
   height: 100%;
 }
 
-.nav__logo {
-  font-size: 2rem;
-  color: var(--white);
+.nav__logo figure img {
+  height: 46px;
 }
 
 .nav__logo span {
@@ -114,7 +124,7 @@ li {
   margin-right: 2rem;
   padding: 1.3rem 1.5rem;
   color: var(--black);
-  background-color: var(--yellow);
+  background-color: var(--login);
 }
 
 .login:focus {
@@ -128,7 +138,8 @@ li {
 
 .cart__icon h2 {
   font-weight: 700;
-  color: var(--orange);
+  color: var(--login);
+  margin-right: .5rem;
 }
 
 .cart__icon span {
@@ -207,9 +218,9 @@ li {
 }
 
 .btn:hover {
-  background-color: var(--orange);
+  background-color: var(--violet);
   color: var(--white);
-  border: 1px solid var(--orange);
+  border: 1px solid var(--violet);
 }
 
 .price {
