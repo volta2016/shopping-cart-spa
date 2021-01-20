@@ -1,9 +1,11 @@
 const openCart = document.querySelector('.cart__icon');
+const modalCart = document.querySelector('.cart')
 const closeCart = document.querySelector('.close__cart');
 const productDOM = document.querySelector('.product__center');
 const cartDOM = document.querySelector('.cart__center');
 const itemsTotal = document.querySelector('.item__total');
 const cartTotal = document.querySelector('.cart__total')
+
 
 let cart = [];
 
@@ -64,11 +66,13 @@ class UI {
 
     productDOM.innerHTML = results;
   }
+
   getButtons() {
     const buttons = [...document.querySelectorAll('.addToCart')];
     // console.log(buttons);
     buttonDOM = buttons;
     buttons.forEach(button => {
+      // console.log(button)
       const id = button.dataset.id
       const inCart = cart.find(item => item.id === id)
 
@@ -93,9 +97,25 @@ class UI {
         // display the item in the cart
         this.addToCart(cartItem);
       });
-      console.log(button)
+      
     });
   }
+
+  showModal() {
+    openCart.addEventListener('click', e => {
+      console.log('ok')
+      e.preventDefault;
+      modalCart.classList.add('show');
+    });
+  }
+  hideModal() {
+    closeCart.addEventListener('click', e => {
+      e.preventDefault;
+      modalCart.classList.remove('show');
+    });
+  }
+
+
 
   setItemValues(cart) {
     let temTotal = 0;
@@ -142,6 +162,8 @@ class UI {
     cartDOM.appendChild(modal);
 
   }
+
+
 }
 // Storage
 class Storage {
@@ -179,6 +201,9 @@ document.addEventListener('DOMContentLoaded', async() => {
   const products = new Products();
   const productsOject = await products.getProduct();
   ui.displayProducts(productsOject);
+  ui.showModal();
+  ui.hideModal();
+  // puede ir el modal 
   ui.getButtons();
   Storage.saveProducts(productsOject);
 });
